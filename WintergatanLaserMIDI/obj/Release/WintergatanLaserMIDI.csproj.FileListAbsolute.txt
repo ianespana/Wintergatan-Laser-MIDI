@@ -1,0 +1,5 @@
+c:\users\ian\documents\visual studio 2015\Projects\WintergatanLaserMIDI\WintergatanLaserMIDI\obj\Release\WintergatanLaserMIDI.csprojResolveAssemblyReference.cache
+c:\users\ian\documents\visual studio 2015\Projects\WintergatanLaserMIDI\WintergatanLaserMIDI\bin\Release\WintergatanLaserMIDI.exe
+c:\users\ian\documents\visual studio 2015\Projects\WintergatanLaserMIDI\WintergatanLaserMIDI\bin\Release\WintergatanLaserMIDI.pdb
+c:\users\ian\documents\visual studio 2015\Projects\WintergatanLaserMIDI\WintergatanLaserMIDI\obj\Release\WintergatanLaserMIDI.exe
+c:\users\ian\documents\visual studio 2015\Projects\WintergatanLaserMIDI\WintergatanLaserMIDI\obj\Release\WintergatanLaserMIDI.pdb

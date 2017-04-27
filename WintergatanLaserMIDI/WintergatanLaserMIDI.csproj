@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E390AA4-3F85-4C50-9E60-9D0C445B37B2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WintergatanLaserMIDI</RootNamespace>
+    <AssemblyName>WintergatanLaserMIDI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MidiSharp\CodeGeneration\CSharpCodeGenerator.cs" />
+    <Compile Include="MidiSharp\Controller.cs" />
+    <Compile Include="MidiSharp\DivisionType.cs" />
+    <Compile Include="MidiSharp\Events\Meta\ChannelPrefixMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\EndOfTrackMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\KeySignatureMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\MetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\MidiPortMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\ProprietaryMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\SequenceNumberMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\SMPTEOffsetMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\TempoMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\BaseTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\CopyrightTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\CuePointTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\DeviceNameTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\InstrumentTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\LyricTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\MarkerTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\ProgramNameTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\SequenceTrackNameTextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\Text\TextMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\TimeSignatureMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Meta\UnknownMetaMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\MidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\SystemExclusiveMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\ChannelPressureVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\ControllerVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\Note\AftertouchNoteVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\Note\NoteVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\Note\OffNoteVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\Note\OnNoteVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\PitchWheelVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\ProgramChangeVoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Events\Voice\VoiceMidiEvent.cs" />
+    <Compile Include="MidiSharp\Format.cs" />
+    <Compile Include="MidiSharp\GeneralMidiInstrument.cs" />
+    <Compile Include="MidiSharp\GeneralMidiPercussion.cs" />
+    <Compile Include="MidiSharp\Headers\ChunkHeader.cs" />
+    <Compile Include="MidiSharp\Headers\MThdChunkHeader.cs" />
+    <Compile Include="MidiSharp\Headers\MTrkChunkHeader.cs" />
+    <Compile Include="MidiSharp\Key.cs" />
+    <Compile Include="MidiSharp\ManufacturerId.cs" />
+    <Compile Include="MidiSharp\MidiEventCollection.cs" />
+    <Compile Include="MidiSharp\MidiParser.cs" />
+    <Compile Include="MidiSharp\MidiSequence.cs" />
+    <Compile Include="MidiSharp\MidiSequenceExtensions.cs" />
+    <Compile Include="MidiSharp\MidiTrack.cs" />
+    <Compile Include="MidiSharp\MidiTrackCollection.cs" />
+    <Compile Include="MidiSharp\PitchWheelStep.cs" />
+    <Compile Include="MidiSharp\SpecialChannels.cs" />
+    <Compile Include="MidiSharp\Tonality.cs" />
+    <Compile Include="MidiSharp\Validate.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
