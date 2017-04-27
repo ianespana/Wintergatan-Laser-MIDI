@@ -26,9 +26,9 @@ Beat Distance = Defines how far away the beats are from each other. (optional)
 1.0.1
 
 ### Latest Changes ### 
-#### [1.0.1] - 26-04-2017
-- #### Fixed
-  - Half-time notes not outputting correctly.
+#### [1.0.2] - 26-04-2017
+- #### Added
+  - Program now checks if an old file with the same name exists, and if so, deletes it.
 
 ### To do:
 
