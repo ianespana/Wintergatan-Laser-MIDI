@@ -20,13 +20,16 @@ namespace WintergatanLaserMIDI
             List<string> lines = new List<string>();
             lines.Add("INSERT PUNCHHOLE");
             string path;
+            double note;
+            double ticks;
+            double time;
 
             if (args.Length == 0)
             {
                 Console.WriteLine("Usage: WintergatanLaserMIDI <filename.mid> [Tone Distance (mm)] [Beat Distance (mm)]");
                 Console.WriteLine("\tfilename.mid = MIDI file for which to generate code");
                 Console.WriteLine("\tTone Distance = Defines the distance between every note-pitch.");
-                Console.WriteLine("\tBeat Distance = Defines how far away the beats are from each other. ");
+                Console.WriteLine("\tBeat Distance = Defines how far away the beats are from each other.");
                 Console.WriteLine();
                 return;
             }
@@ -69,6 +72,8 @@ namespace WintergatanLaserMIDI
             try
             {
                 MidiSequence sequence = MidiSequence.Open(File.OpenRead(args[0]));
+                ticks = (double) sequence.Division;
+
                 foreach (MidiTrack track in sequence)
                 {
                     track.Events.ConvertDeltasToTotals();
@@ -77,13 +82,16 @@ namespace WintergatanLaserMIDI
                         if (ev.GetType().ToString() == "MidiSharp.Events.Voice.Note.OnNoteVoiceMidiEvent")
                         {
                             NoteVoiceMidiEvent nvme = ev as NoteVoiceMidiEvent;
-                            Console.WriteLine(((ev.DeltaTime / sequence.Division) * beatDistance) + "," + ((nvme.Note - 60) * toneDistance));
+                            note = (double) nvme.Note;
+                            time = (double) ev.DeltaTime;
+
+                            Console.WriteLine(((time / ticks) * beatDistance) + "," + ((note - 60.0d) * toneDistance));
                             if (lines.Count >= 2) {
-                                lines.Add("  " + ((ev.DeltaTime / sequence.Division) * beatDistance) + "," + ((nvme.Note - 60) * toneDistance) + ",0 1 1 0");
+                                lines.Add("  " + ((time / ticks) * beatDistance) + "," + ((note - 60.0d) * toneDistance) + ",0 1 1 0");
                             }
                             else
                             {
-                                lines.Add(((ev.DeltaTime / sequence.Division) * beatDistance) + "," + ((nvme.Note - 60) * toneDistance) + ",0 1 1 0");
+                                lines.Add(((time / ticks) * beatDistance) + "," + ((note - 60.0d) * toneDistance) + ",0 1 1 0");
                             }
                         }
                     }
