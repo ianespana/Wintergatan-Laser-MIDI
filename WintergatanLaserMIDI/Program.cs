@@ -43,6 +43,11 @@ namespace WintergatanLaserMIDI
             path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\" + args[0] + ".scr";
             path = new Uri(path).LocalPath;
 
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
             if (args.Length == 2 && !string.IsNullOrEmpty(args[1]))
             {
                 if (double.TryParse(args[1], out n))
